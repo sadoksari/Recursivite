@@ -1,0 +1,51 @@
+
+/********* premiere version  RECURSIVE **************/
+
+FUNCTION palandrome( mot : STRING ) : BOOLEAN
+
+VAR
+
+  long : INTEGER := mot.length  ;  
+
+  mot2 : STRING ;
+
+       // A B C A C B A
+BEGIN
+
+    IF ( long == 1 )  THEN
+       return ( true);
+	   
+	IF ( mot[0] != mot[long - 1 ] )  THEN
+        return ( false)
+	   
+	IF ( long == 2  )  THEN
+	   return ( true);
+	   
+    IF ( long > 2 )
+      return ( palandrome ( substring ( mot , 1, long -2 )  ) 
+
+ 
+END
+
+/*********** deuxieme version iterative ************/
+
+FUNCTION palandrome( mot : STRING ) : BOOLEAN
+
+VAR
+
+  i : INTEGER := 0;
+  long : INTEGER := mot.length-1 ;  
+
+        
+BEGIN
+    FOR i FROM 0 TO long/2 DO
+
+        IF ( mot[i] <> mot [long - i ] ) THEN
+             return ( false ) ;
+        END_IF
+
+   END_FOR
+   return ( true) ;      
+ 
+END 
+
