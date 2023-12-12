@@ -6,24 +6,29 @@ FUNCTION palandrome( mot : STRING ) : BOOLEAN
 VAR
 
   long : INTEGER := mot.length  ;  
-
-  mot2 : STRING ;
-
-       // A B C A C B A
+        
 BEGIN
 
+    // si le mot est constitué d'une seule lettre alors est une palindrome
     IF ( long == 1 )  THEN
        return ( true);
+    END_IF 	   
 	   
+	// si la premiere et la derniere sont differentes
 	IF ( mot[0] != mot[long - 1 ] )  THEN
         return ( false)
+    END_IF 	   
 	   
+	 // si le mot est constitué de deux lettres identiques
 	IF ( long == 2  )  THEN
 	   return ( true);
-	   
+	END_IF  
+	 
+	//   si la longeur du mot est > 2, on fait appel recursif avec le sous mot(mot initial sans le 1ere 
+	//   et le derniere caractere)
     IF ( long > 2 )
       return ( palandrome ( substring ( mot , 1, long -2 )  ) 
-
+    END_IF 
  
 END
 
@@ -38,6 +43,8 @@ VAR
 
         
 BEGIN
+
+    // on compare chaque caractere du mot avec son image chiral 
     FOR i FROM 0 TO long/2 DO
 
         IF ( mot[i] <> mot [long - i ] ) THEN
